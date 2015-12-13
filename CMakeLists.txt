@@ -34,5 +34,5 @@ target_include_directories(gmock_main INTERFACE
 
 add_subdirectory(tests)
 include_directories(.)
-set(SOURCE_FILES main.cpp Runner.cpp Runner.h unitTest.cpp unitTest.h)
+set(SOURCE_FILES main.cpp Runner.cpp Runner.h unitTest.cpp unitTest.h hls_unitTest.h)
 add_executable(hls_unitTest_main ${SOURCE_FILES})
