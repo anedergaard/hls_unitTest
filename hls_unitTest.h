@@ -33,6 +33,6 @@ public:\
 HLS_TEST_CLASS_NAME(tc_name,test_name) HLS_TEST_CLASS_OBJ_NAME(tc_name,test_name);\
 void HLS_TEST_CLASS_NAME(tc_name,test_name)::TestBody()
 
-#define HLS_ASSERT_EQ(x) this->assert_eq((x),__PRETTY_FUNCTION__,#x,__FILE__,__LINE__)
-
+#define HLS_ASSERT_TRUE(x) this->assert_eq((x),__PRETTY_FUNCTION__,#x " is not True",__FILE__,__LINE__)
+#define HLS_ASSERT_EQ(expected, actual) this->assert_eq(((expected) == (actual)),__PRETTY_FUNCTION__,#actual " is not " #expected,__FILE__,__LINE__)
 #endif //HLS_UNITTEST_HLS_UNITTEST_H

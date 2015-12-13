@@ -7,21 +7,31 @@
 
 TestSuite adder;
 
-HLS_TEST(adder, test3)
+HLS_TEST(adder, test1)
 {
 	//std::cout << __PRETTY_FUNCTION__ << std::endl;
-	HLS_ASSERT_EQ(1==2);
+	HLS_ASSERT_TRUE(1==1);
 }
 
 HLS_TEST(adder, test4)
 {
 	//std::cout << __PRETTY_FUNCTION__ << std::endl;
-	HLS_ASSERT_EQ(true);
+	HLS_ASSERT_TRUE(true);
 }
 
 HLS_TEST(adder, test5)
 {
-	HLS_ASSERT_EQ((5>4 ? false : true));
+	HLS_ASSERT_TRUE((5>4 ? false : true));
+}
+
+HLS_TEST(adder, test6)
+{
+	HLS_ASSERT_EQ(5, 3);
+}
+
+HLS_TEST(adder, test7)
+{
+	HLS_ASSERT_EQ(true, false);
 }
 
 int main(int argc, char** argv)

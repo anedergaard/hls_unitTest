@@ -35,6 +35,6 @@ void hls_unitTest::UnitTest::assert_eq(bool assert_equation, std::string TCName,
 			TCName = TCName.substr(0, TCName.find_last_of('_'))+"::"+TCName.substr(TCName.find_last_of('_')+1);
 		}
 
-		throw std::logic_error(TCName+" -> "+file+"("+Convert.str()+"): Error: "+expression+" is not True");
+		throw std::logic_error(TCName+" -> "+file+"("+Convert.str()+"): Error: "+expression);
 	}
 }
