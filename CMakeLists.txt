@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.3)
 project(hls_unitTest)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++0x")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
 configure_file(CMakeLists.txt.in
         googletest-download/CMakeLists.txt)
@@ -33,6 +33,6 @@ target_include_directories(gmock_main INTERFACE
         "${CMAKE_BINARY_DIR}/googletest-src/googlemock/include" )
 
 add_subdirectory(tests)
-
-set(SOURCE_FILES main.cpp)
+include_directories(.)
+set(SOURCE_FILES main.cpp Runner.cpp Runner.h unitTest.cpp unitTest.h)
 add_executable(hls_unitTest_main ${SOURCE_FILES})

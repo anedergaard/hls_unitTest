@@ -5,36 +5,34 @@
 #ifndef HLS_UNITTEST_HLS_UNITTEST_H
 #define HLS_UNITTEST_HLS_UNITTEST_H
 
-#include <iostream>
+#include <Runner.h>
+#include <unitTest.h>
 
-namespace hls_unitTest
-{
+#define TestSuite struct
 
+#define str(s) #s
 
-  template <typename T>
-  class unitTest
-  {
-   protected:
-    unitTest()
-    {
+#define HLS_TEST_CLASS_NAME(tc_name, test_name)\
+  tc_name##_##test_name##_Test
 
-      std::cout << "unitTest constructor" << std::endl;
+#define HLS_TEST_CLASS_OBJ_NAME(tc_name, test_name)\
+  obj_test_case_name##_##test_name##_Test
 
-    }
-  };
+#define HLS_TEST_TC_NAME_STR(tc_name, test_name) str(tc_name) "::" str(test_name)
 
-  struct TestSuite_t
-  {
-    int k;
-  };
+#define HLS_TEST(tc_name, test_name) \
+class HLS_TEST_CLASS_NAME(tc_name,test_name) : hls_unitTest::UnitTest \
+{\
+public:\
+    void TestBody();\
+    HLS_TEST_CLASS_NAME(tc_name,test_name) () : hls_unitTest::UnitTest(HLS_TEST_TC_NAME_STR(tc_name,test_name))\
+    {\
+        \
+    }\
+};\
+HLS_TEST_CLASS_NAME(tc_name,test_name) HLS_TEST_CLASS_OBJ_NAME(tc_name,test_name);\
+void HLS_TEST_CLASS_NAME(tc_name,test_name)::TestBody()
 
-}
-
-
-
-#define TestSuite typedef hls_unitTest::TestSuite_t
-
-#define HLS_TEST(tc_name, test_name) struct TC_##tc_name : hls_unitTest::unitTest<tc_name> { void operator()();}; void TC_##tc_name::operator()()
-
+#define HLS_ASSERT_EQ(x) this->assert_eq((x),__PRETTY_FUNCTION__,#x,__FILE__,__LINE__)
 
 #endif //HLS_UNITTEST_HLS_UNITTEST_H
