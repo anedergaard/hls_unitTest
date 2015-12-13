@@ -5,8 +5,8 @@
 #ifndef HLS_UNITTEST_HLS_UNITTEST_H
 #define HLS_UNITTEST_HLS_UNITTEST_H
 
-#include <Runner.h>
-#include <unitTest.h>
+#include "Runner.h"
+#include "unitTest.h"
 
 #define TestSuite struct
 
