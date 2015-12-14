@@ -34,10 +34,18 @@ HLS_TEST(adder, test7)
 	HLS_ASSERT_EQ(true, false);
 }
 
+HLS_TEST(adder,test8)
+{
+	HLS_ASSERT_FALSE(false);
+}
+
+HLS_TEST(adder,test9)
+{
+	HLS_ASSERT_FALSE(true);
+}
+
 int main(int argc, char** argv)
 {
-	hls_unitTest::Runner::start(argc, argv);
-
-	return 0;
+	return hls_unitTest::Runner::start(argc, argv);
 }
 

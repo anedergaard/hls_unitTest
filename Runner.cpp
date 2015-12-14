@@ -7,6 +7,7 @@
 #include <iostream>
 #include <chrono>
 
+
 hls_unitTest::Runner* instance = nullptr;
 
 std::string Plural(size_t n)
@@ -14,7 +15,7 @@ std::string Plural(size_t n)
 	return (n>1) ? "s" : "";
 }
 
-void hls_unitTest::Runner::start(int argc, char** argv)
+error_t hls_unitTest::Runner::start(int argc, char **argv)
 {
 	Runner* r = getInstance();
 
@@ -48,6 +49,8 @@ void hls_unitTest::Runner::start(int argc, char** argv)
 
 	std::cout << "[============] " << "Finished running test" << Plural(NumberOfTest) << std::endl;
 
+	// At the moment only return OK!
+	return 0;
 }
 
 hls_unitTest::Runner* hls_unitTest::Runner::getInstance()

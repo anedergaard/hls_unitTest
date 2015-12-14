@@ -9,6 +9,7 @@
 #include <map>
 #include <functional>
 #include <vector>
+#include <errno.h>
 
 namespace hls_unitTest
 {
@@ -17,7 +18,7 @@ namespace hls_unitTest
 	{
 	public:
 
-		static void start(int argc, char** argv);
+		static error_t start(int argc, char **argv);
 
 		static Runner* getInstance();
 
