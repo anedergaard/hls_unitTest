@@ -9,29 +9,12 @@ TestSuite adder;
 
 HLS_TEST(adder, test1)
 {
-	//std::cout << __PRETTY_FUNCTION__ << std::endl;
-	HLS_ASSERT_TRUE(1==1);
-}
-
-HLS_TEST(adder, test4)
-{
-	//std::cout << __PRETTY_FUNCTION__ << std::endl;
 	HLS_ASSERT_TRUE(true);
-}
-
-HLS_TEST(adder, test5)
-{
-	HLS_ASSERT_TRUE((5>4 ? false : true));
-}
-
-HLS_TEST(adder, test6)
-{
-	HLS_ASSERT_EQ(5, 3);
 }
 
 HLS_TEST(adder, test7)
 {
-	HLS_ASSERT_EQ(true, false);
+	HLS_ASSERT_EQUAL(true, true);
 }
 
 HLS_TEST(adder,test8)
@@ -39,9 +22,14 @@ HLS_TEST(adder,test8)
 	HLS_ASSERT_FALSE(false);
 }
 
-HLS_TEST(adder,test9)
+HLS_TEST(adder, test10)
 {
-	HLS_ASSERT_FALSE(true);
+	HLS_ASSERT_GREATER(5, 4);
+}
+
+HLS_TEST(adder, test11)
+{
+	HLS_ASSERT_SMALLER(4, 5);
 }
 
 int main(int argc, char** argv)
