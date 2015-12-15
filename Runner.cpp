@@ -15,7 +15,7 @@ std::string Plural(size_t n)
 	return (n>1) ? "s" : "";
 }
 
-error_t hls_unitTest::Runner::start(int argc, char **argv)
+int hls_unitTest::Runner::start(int argc, char** argv)
 {
 	Runner* r = getInstance();
 

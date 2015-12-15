@@ -18,7 +18,7 @@ namespace hls_unitTest
 	{
 	public:
 
-		static error_t start(int argc, char **argv);
+		static int start(int argc, char** argv);
 
 		static Runner* getInstance();
 
